@@ -50,4 +50,4 @@ public class Set {
         out.println("last:\t\t" + jps.getAlphaList().last());
 
     }
-}
+
