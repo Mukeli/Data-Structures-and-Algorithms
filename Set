@@ -1,0 +1,53 @@
+package algorithms;
+
+import java.util.TreeSet;
+import java.util.NavigableSet;
+import static java.lang.System.out;
+
+
+/**
+ * Created by mukeli on 10/11/15.
+ */
+
+
+
+public class Set {
+    private NavigableSet<String> alphaList = new TreeSet<String>();
+    public Set(){
+        fillList();
+    }
+    public NavigableSet<String> getAlphaList() {
+        return alphaList;
+    }
+    public void setAlphaList(NavigableSet<String> alphaList) {
+        this.alphaList = alphaList;
+    }
+    private void fillList () {
+        alphaList.add("E");
+        alphaList.add("A");
+        alphaList.add("B");
+        alphaList.add("D");
+        alphaList.add("F");
+    }
+    public static void main(String... args) {
+        Set jps = new Set();
+        System.out.println(jps.getAlphaList());
+
+        NavigableSet set1 = jps.getAlphaList().headSet("C", true);
+        System.out.println(set1);
+
+        NavigableSet set2 = jps.getAlphaList().subSet("B", true, "D", true);
+        System.out.println(set2);
+
+        NavigableSet set3 = jps.getAlphaList().tailSet("D", false);
+        System.out.println(set3);
+
+        out.println("first:\t\t" + jps.getAlphaList().first());
+        out.println("floor('C'):\t" + jps.getAlphaList().floor("C"));
+        out.println("lower('D'):\t" + jps.getAlphaList().lower("D"));
+        out.println("ceiling('C'):\t" + jps.getAlphaList().ceiling("C"));
+        out.println("higher('D'):\t" + jps.getAlphaList().higher("D"));
+        out.println("last:\t\t" + jps.getAlphaList().last());
+
+    }
+}
