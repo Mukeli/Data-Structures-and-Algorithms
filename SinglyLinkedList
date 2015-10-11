@@ -1,0 +1,48 @@
+package algorithms;
+
+/**
+ * Created by mukeli on 10/11/15.
+ */
+
+
+import java.lang.*;
+public class SinglyLinkedList
+{
+    Node start;
+    public SinglyLinkedList()
+    {
+        this.start=null;
+    }
+
+    public void addFront(Object newData)
+    {
+        Node cache = this.start; //store a reference to the current start node
+        this.start = new Node(newData,cache); //assign our start to a new node that has newData and points to our old start
+    }
+    public addRear(Object newData)
+    {
+        Node cache = start;
+        Node current = null;
+
+        while((current = cache.next) != null) //find the last Node
+            cache = cache.next;
+
+        cache.next = new Node(newData,null); //create a new node that has newData and points to null
+    }
+
+    public Object getFront()
+    {
+        return this.start.data; // return the front object's data
+    }
+
+    public class Node
+    {
+        public Object data; //the data stored in this node
+        public Node next; //store a reference to the next node in this singlylinkedlist
+        public Node(Object data,Node next){
+            this.data =data;
+            this.next =next;
+        }
+    }
+}
+
